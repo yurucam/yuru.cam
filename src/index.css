@@ -1,0 +1,292 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #fafafa;
+  color: #333;
+}
+
+#root {
+  height: 100%;
+}
+
+/* Main app container - center everything */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+}
+
+.services-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Services container - grid layout */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  max-width: 100%;
+}
+
+/* Service link styling */
+.service-link {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.2rem;
+  transition: all 0.2s ease;
+  position: relative;
+  height: 90px;
+  min-height: 90px;
+}
+
+.service-link:hover {
+  border-color: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-link:hover .service-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.service-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.service-description {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.4;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.service-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.2s ease;
+  color: #666;
+  flex-shrink: 0;
+  margin-left: 1rem;
+  align-self: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app {
+    padding: 1.5rem;
+  }
+  
+  .services {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .service-link {
+    padding: 1rem;
+    height: 80px;
+    min-height: 80px;
+  }
+  
+  .service-title {
+    font-size: 1rem;
+  }
+  
+  .service-description {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
+  }
+  
+  .service-arrow {
+    margin-left: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 1rem;
+  }
+  
+  .service-link {
+    padding: 0.9rem;
+    height: 75px;
+    min-height: 75px;
+  }
+  
+  .service-title {
+    font-size: 0.95rem;
+  }
+  
+  .service-description {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 2;
+  }
+  
+  .service-arrow {
+    margin-left: 0.5rem;
+  }
+  
+  .service-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Clean focus states */
+.service-link:focus {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+/* Subtle animation */
+.service-link {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Animation delays are now handled inline in the component */
+
+/* Footer styles */
+.footer {
+  margin-top: auto;
+  padding: 4rem 0 2rem 0;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #999;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.footer-link:hover {
+  color: #333;
+  border-color: #e1e5e9;
+  background: #f8f9fa;
+}
+
+.footer-icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    gap: 1rem;
+  }
+  
+  .footer-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .footer-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Handle very long service names */
+@media (max-width: 600px) {
+  .services {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* For larger screens with many items */
+@media (min-width: 1200px) {
+  .services {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .container {
+    max-width: 1000px;
+  }
+}
