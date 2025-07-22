@@ -59,15 +59,15 @@ const services: Service[] = [
       en: {
         title: "Bass Fretboard Trainer",
         description:
-          "Practice tool for matching note names to fretboard positions",
+          "Practice tool for matching musical notation to fretboard positions",
       },
       ko: {
         title: "베이스 지판 맞추기",
-        description: "계이름을 보고 지판을 맞추는 연습 도구",
+        description: "악보를 보고 지판을 맞추는 연습 도구",
       },
       ja: {
         title: "ベースフレットボードトレーナー",
-        description: "音名を見てフレットボードの位置を当てる練習ツール",
+        description: "楽譜の音符を見てフレットボードの位置を当てる練習ツール",
       },
     },
   },
